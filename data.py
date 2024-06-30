@@ -42,7 +42,5 @@ class TestOrderCreation:
         "rentTime": 5,
         "deliveryDate": "2024-07-07",
         "comment": "Saske, come back to Konoha",
-        "color": [
-            ""
-        ]
+        "color": []
     }
