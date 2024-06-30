@@ -1,3 +1,4 @@
+import allure
 import requests
 import random
 import string
@@ -11,6 +12,7 @@ def generate_random_string(length):
     return random_string
 
 
+@allure.step("Регистрация курьера")
 def register_courier(payload=None):
     if payload is None:
         payload = {}
@@ -22,6 +24,7 @@ def register_courier(payload=None):
             "response": response}
 
 
+@allure.step("Авторизация курьера")
 def login_courier(credentials):
     payload = {
         "login": credentials["login"],
@@ -31,6 +34,7 @@ def login_courier(credentials):
     return response
 
 
+@allure.step("Создание заказа")
 def create_order(payload=None):
     if payload is None:
         payload = TestOrderCreation.color_black
@@ -38,11 +42,8 @@ def create_order(payload=None):
     return response
 
 
+@allure.step("Получение списка заказов")
 def get_list_orders():
     order_list = requests.get(TestDataUrl.ORDER_URL)
     return order_list
 
-
-def delete_courier(id_courier=None):
-    response = requests.delete(f"{TestDataUrl.COURIER_URL}{id_courier}")
-    return response
