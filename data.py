@@ -1,3 +1,6 @@
+import random
+
+
 class TestDataUrl:
     BASE_URL = 'https://qa-scooter.praktikum-services.ru/api/v1/'
     COURIER_URL = f'{BASE_URL}courier/'
@@ -44,3 +47,12 @@ class TestOrderCreation:
         "comment": "Saske, come back to Konoha",
         "color": []
     }
+
+
+class TestDataRegisterCourier:
+    couriers_register_with_empty_login = {"login": "",
+                                          "password": "1234",
+                                          "firstName": f"firstName_{random.randint(1, 100)}"}
+    couriers_register_with_empty_password = {"login": f"login_{random.randint(1, 100)}",
+                                             "password": "",
+                                             "firstName": f"firstName_{random.randint(1, 100)}"}

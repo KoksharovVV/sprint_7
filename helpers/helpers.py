@@ -14,9 +14,9 @@ def generate_random_string(length):
 def register_courier(payload=None):
     if payload is None:
         payload = {}
-    payload["login"] = payload.get("login", generate_random_string(10))
-    payload["password"] = payload.get("password", generate_random_string(10))
-    payload["firstName"] = payload.get("firstName", generate_random_string(10))
+        payload["login"] = payload.get("login", generate_random_string(10))
+        payload["password"] = payload.get("password", generate_random_string(10))
+        payload["firstName"] = payload.get("firstName", generate_random_string(10))
     response = requests.post(TestDataUrl.COURIER_URL, data=payload)
     return {"login": payload["login"], "password": payload["password"], "first_name": payload["firstName"],
             "response": response}
